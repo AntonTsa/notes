@@ -1,12 +1,11 @@
 package org.example.notes.service.impl;
 
-import org.example.notes.entity.Note;
-import org.example.notes.service.NoteService;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.example.notes.entity.Note;
+import org.example.notes.service.NoteService;
+import org.springframework.stereotype.Service;
 
 @Service
 public class NoteServiceImpl implements NoteService {
