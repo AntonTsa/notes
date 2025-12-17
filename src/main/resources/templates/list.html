@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>All Notes</title>
+</head>
+<body>
+<div class="container">
+    <div class="site-header">
+        <h1>All Notes</h1>
+        <button th:onclick="|location.href='@{/api/notes/new}'|" class="btn btn-create">Create New Note</button>
+    </div>
+
+    <section class="notes">
+
+        <article th:class="${notes.isEmpty()}? 'note' : 'hidden'">
+            <p>No notes found</p>
+        </article>
+        <article th:class="${notes.isEmpty()}? 'hidden' : 'notes'" th:each="note : ${notes}">
+            <div class="note">
+                <h2 th:text="${note.title}"></h2>
+
+                <p th:text="${note.content}"></p>
+
+                <div class="note-actions">
+                    <form th:action="@{/api/notes/{id}/edit(id=${note.id})}" th:object="${note}" method="get">
+                        <button type="submit" class="btn btn-secondary">
+                            Edit
+                        </button>
+                    </form>
+
+                    <form th:action="@{/api/notes/{id}/delete(id=${note.id})}" method="post">
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+</body>
+</html>

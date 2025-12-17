@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Note</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="site-header">
+                <h1>Update Note</h1>
+            </div>
+
+            <section class="note">
+                <form th:action="@{/api/notes/edit}" method="post" th:object="${note}">
+                    <input type="hidden" th:field="*{id}">
+                    <div>
+                        <label for="title">Title</label>
+                    </div>
+                    <div>
+                        <input id="title" type="text" th:field="*{title}" required>
+                    </div>
+                    <div>
+                        <label for="content">Content</label>
+                    </div>
+                    <div>
+                        <textarea id="content" th:field="*{content}" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Save</button>
+                </form>
+            </section>
+        </div>
+    </body>
+</html>

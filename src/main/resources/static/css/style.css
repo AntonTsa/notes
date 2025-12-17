@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "ITC Blair";
+    src: url("/fonts/ITCBlair-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Base --- */
+body {
+    font-family: "ITC Blair", system-ui, sans-serif;
+    background: #d6c6a1; /* sand */
+    color: #2b2b2b;
+    line-height: 1.6;
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 24px;
+}
+
+/* --- Header --- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.site-header h1 {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-create {
+    background: linear-gradient(135deg, #c89b3c, #9f6b1f);
+    color: #1e1e1e;
+}
+
+.btn-secondary {
+    background: #3a3a3a;
+    color: #f2f2f2;
+}
+
+.btn-danger {
+    background: #7a2e2e;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* --- Notes --- */
+.notes {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden p {
+
+    color: #3b3b3b;
+}
+
+.note {
+    background: #eee2c6;
+    border: 1px solid #bfa87a;
+    padding: 20px 24px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.note h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.note p {
+    margin-bottom: 20px;
+    color: #3b3b3b;
+}
+
+/* --- Actions --- */
+.note-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.note-actions form {
+    display: inline;
+}
+
+textarea {
+    width: 800px;
+    height: 300px;
+    position: relative;
+    font-size: 18px;
+}
+
+input {
+    width: 800px;
+    position: relative;
+    font-size: 18px;
+}
+
+
+
