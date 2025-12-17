@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-
 import org.example.notes.entity.Note;
 import org.example.notes.service.NoteService;
 import org.springframework.stereotype.Service;

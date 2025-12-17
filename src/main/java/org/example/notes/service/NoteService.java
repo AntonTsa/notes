@@ -1,8 +1,7 @@
 package org.example.notes.service;
 
-import org.example.notes.entity.Note;
-
 import java.util.List;
+import org.example.notes.entity.Note;
 
 public interface NoteService {
 
