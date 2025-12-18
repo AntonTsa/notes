@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: notes
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/note
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  flyway:
+    enabled: true
+  devtools:
+    restart:
+      enabled: false
+server:
+  port: 8081
