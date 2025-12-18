@@ -1,41 +1,40 @@
 package org.example.notes.service.impl;
 
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
+
+import lombok.RequiredArgsConstructor;
 import org.example.notes.entity.Note;
+import org.example.notes.repository.NoteRepository;
 import org.example.notes.service.NoteService;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class NoteServiceImpl implements NoteService {
-    private final Map<Long, Note> notes = new ConcurrentHashMap<>();
-    private final AtomicLong id = new AtomicLong();
+    private final NoteRepository noteRepository;
 
     @Override
     public List<Note> listAll() {
-        return notes.values().stream().toList();
+        return noteRepository.findAll();
     }
 
     @Override
     public Note getById(Long id) {
-        return notes.get(id);
+        return noteRepository.findById(id).orElse(null);
     }
 
     @Override
     public Note add(Note note) {
-        note.setId(id.incrementAndGet());
-        return notes.put(note.getId(), note);
+        return noteRepository.save(note);
     }
 
     @Override
     public void deleteById(long id) {
-        notes.remove(id);
+        noteRepository.deleteById(id);
     }
 
     @Override
     public void update(Note note) {
-        notes.put(note.getId(), note);
+        noteRepository.save(note);
     }
 }
