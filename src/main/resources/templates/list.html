@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div class="site-header">
-        <h1>All Notes</h1>
+        <h1 th:text="|All ${username}'s Notes|"></h1>
         <button th:onclick="|location.href='@{/api/notes/new}'|" class="btn btn-create">Create New Note</button>
     </div>
 

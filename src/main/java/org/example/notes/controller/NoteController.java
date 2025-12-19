@@ -3,6 +3,7 @@ package org.example.notes.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.notes.entity.Note;
 import org.example.notes.service.NoteService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,9 +19,13 @@ public class NoteController {
     private final NoteService noteService;
 
     @GetMapping
-    public ModelAndView listNotes() {
+    public ModelAndView listNotes(Authentication authentication) {
         ModelAndView mav = new ModelAndView("list");
         mav.addObject("notes", noteService.listAll());
+        mav.addObject(
+                "username",
+                authentication != null ? authentication.getName() : "Guest"
+        );
         return mav;
     }
 
