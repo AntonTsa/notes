@@ -1,5 +1,6 @@
 package org.example.notes.config;
 
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +10,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractAu
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class WebSecurityConfig {
@@ -23,8 +22,10 @@ public class WebSecurityConfig {
         authBuilder.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .usersByUsernameQuery("select username, password, enabled from \"USER\" where username=?")
-                .authoritiesByUsernameQuery("select username, role from \"USER\" where username=?");
+                .usersByUsernameQuery(
+                        "select username, password, enabled from \"USER\" where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username, role from \"USER\" where username=?");
     }
 
     @Bean

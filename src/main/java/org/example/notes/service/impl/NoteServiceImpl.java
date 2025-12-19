@@ -1,7 +1,6 @@
 package org.example.notes.service.impl;
 
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.example.notes.entity.Note;
 import org.example.notes.repository.NoteRepository;
