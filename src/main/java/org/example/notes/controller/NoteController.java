@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/api/notes")
+@RequestMapping("/api/v1/notes")
 @RequiredArgsConstructor
 public class NoteController {
     private final NoteService noteService;

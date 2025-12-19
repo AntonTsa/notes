@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Default Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="'Welcome ' + ${username}"></h1>
+
+<div class="container">
+    <div class="site-header">
+        <h1 th:text="'Welcome, ' + ${username}"></h1>
+    </div>
+
+    <section class="notes">
+
+        <!-- КНОПКА LOGIN -->
+        <div th:if="${!isAuthenticated}">
+            <form th:action="@{/api/v1/login}" method="get">
+                <button type="submit" class="btn btn-secondary">
+                    Login
+                </button>
+            </form>
+        </div>
+
+        <!-- КНОПКА LOGOUT -->
+        <div th:if="${isAuthenticated}">
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-danger">
+                    Logout
+                </button>
+            </form>
+        </div>
+
+    </section>
+</div>
+
 </body>
 </html>
