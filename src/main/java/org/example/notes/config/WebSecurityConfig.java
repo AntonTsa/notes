@@ -24,7 +24,7 @@ public class WebSecurityConfig {
     public void configureAuthentication(AuthenticationManagerBuilder authBuilder) {
         authBuilder.jdbcAuthentication()
                 .dataSource(dataSource)
-                .passwordEncoder(new BCryptPasswordEncoder())
+                .passwordEncoder(bCryptPasswordEncoder())
                 .usersByUsernameQuery(
                         "select username, password, enabled from users where username=?")
                 .authoritiesByUsernameQuery(
