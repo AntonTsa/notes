@@ -21,10 +21,12 @@ public class WebSecurityConfig {
     }
 
     @Autowired
-    public void configureAuthentication(AuthenticationManagerBuilder authBuilder) {
+    public void configureAuthentication(
+            AuthenticationManagerBuilder authBuilder,
+            BCryptPasswordEncoder bcryptPasswordEncoder) {
         authBuilder.jdbcAuthentication()
                 .dataSource(dataSource)
-                .passwordEncoder(bCryptPasswordEncoder())
+                .passwordEncoder(bcryptPasswordEncoder)
                 .usersByUsernameQuery(
                         "select username, password, enabled from users where username=?")
                 .authoritiesByUsernameQuery(
